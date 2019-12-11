@@ -6,12 +6,12 @@ export class PhotoController {
     constructor(private readonly photoService: PhotoService) {}
 
     @Get('create')
-    createPhoto() {
+    public createPhoto() {
         return this.photoService.upsertRandom();
     }
 
     @Get()
-    findAll() {
+    public findAll() {
         return this.photoService.findAll();
     }
 }

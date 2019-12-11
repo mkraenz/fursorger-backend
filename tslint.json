@@ -10,9 +10,6 @@
         "prefer-template": true,
         "prettier": true,
         "quotemark": [true, "single"],
-        "member-access": [false],
-        "member-ordering": [false],
-        "arrow-parens": false,
         "object-literal-sort-keys": false
     },
     "rulesDirectory": [

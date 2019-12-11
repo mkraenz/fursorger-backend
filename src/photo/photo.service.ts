@@ -10,11 +10,11 @@ export class PhotoService {
         private readonly photoRepository: Repository<Photo>,
     ) {}
 
-    findAll() {
+    public findAll() {
         return this.photoRepository.find();
     }
 
-    upsertRandom() {
+    public upsertRandom() {
         return this.photoRepository.save({
             name: 'lovely sunset',
             description: 'A lovely sunset I saw on March 21 last year.',

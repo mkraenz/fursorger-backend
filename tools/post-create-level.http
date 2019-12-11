@@ -1,0 +1,13 @@
+{
+  "body": {
+    "content": "ewogICAgImxldmVsSnNvbiI6ICJ7XCJjaXRpZXNcIjpbe1wibmFtZVwiOlwiQXRoZW5zXCIsXCJzdG9ja1wiOjYsXCJwcm9kdWN0aW9uXCI6LTEsXCJ4XCI6MTUwLFwieVwiOjEwMH0se1wibmFtZVwiOlwiQmVyblwiLFwic3RvY2tcIjo2LFwicHJvZHVjdGlvblwiOi0xLFwieFwiOjUwMCxcInlcIjoyMDB9LHtcIm5hbWVcIjpcIkNhaXJvXCIsXCJzdG9ja1wiOjcsXCJwcm9kdWN0aW9uXCI6LTEsXCJ4XCI6MTUwLFwieVwiOjMwMH0se1wibmFtZVwiOlwiRHVibGluXCIsXCJzdG9ja1wiOjgsXCJwcm9kdWN0aW9uXCI6LTEsXCJ4XCI6NTAwLFwieVwiOjQwMH1dLFwidHJhdmVsUGF0aHNcIjpbe1wiZmlyc3RcIjpcIkF0aGVuc1wiLFwic2Vjb25kXCI6XCJCZXJuXCJ9LHtcImZpcnN0XCI6XCJEdWJsaW5cIixcInNlY29uZFwiOlwiQ2Fpcm9cIn0se1wiZmlyc3RcIjpcIkJlcm5cIixcInNlY29uZFwiOlwiQ2Fpcm9cIn0se1wiZmlyc3RcIjpcIkR1YmxpblwiLFwic2Vjb25kXCI6XCJBdGhlbnNcIn1dLFwicGxheWVyU3RvY2tcIjozfSIsCiAgICAibmFtZSI6ICJzdXBlciBjb29sIGxldmVsIiAKfQ==",
+    "file": false,
+    "fileSize": false
+  },
+  "headers": {
+    "content-type": "application/json"
+  },
+  "method": "POST",
+  "title": "New HTTP Request",
+  "url": "http://localhost:3000/level/"
+}
