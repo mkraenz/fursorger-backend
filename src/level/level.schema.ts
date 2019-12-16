@@ -1,12 +1,14 @@
-import { IsArray, IsInt } from 'class-validator';
+import { ArrayNotEmpty, IsArray, IsInt } from 'class-validator';
 
 export class LevelSchema {
 
     @IsArray()
+    @ArrayNotEmpty()
     public cities!: ICity[];
 
     @IsArray()
-    public travelPaths!: IPath;
+    @ArrayNotEmpty()
+    public travelPaths!: IPath[];
 
     @IsInt()
     public playerStock!: number;

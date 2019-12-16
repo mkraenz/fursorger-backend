@@ -3,6 +3,7 @@
     "version": "0.0.1",
     "description": "",
     "author": "Mirco Kraenz",
+    "license": "UNLICENSED",
     "scripts": {
         "build": "rimraf dist && tsc -p tsconfig.build.json",
         "dev": "npm run start:dev",
@@ -15,7 +16,7 @@
         "sanity-check": "npm install && npm test && npm run dev",
         "test": "jest",
         "test:watch": "jest --watch",
-        "test:cov": "jest --coverage",
+        "test:coverage": "jest --coverage",
         "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
         "test:e2e": "jest --config ./test/jest-e2e.json"
     },

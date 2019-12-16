@@ -10,7 +10,9 @@
         "prefer-template": true,
         "prettier": true,
         "quotemark": [true, "single"],
-        "object-literal-sort-keys": false
+        "object-literal-sort-keys": false,
+        "no-floating-promises": true,
+        "no-promise-as-boolean": true
     },
     "rulesDirectory": [
         "tslint-plugin-prettier",

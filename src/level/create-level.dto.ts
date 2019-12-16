@@ -1,5 +1,5 @@
 import { IsString, Length, Validate } from 'class-validator';
-import { IsSerializedLevel } from './is-serialized-level.custom-validator';
+import { IsSerializedLevel } from './is-serialized-level.validator';
 
 export class CreateLevelDto {
     @IsString()
