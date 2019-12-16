@@ -12,8 +12,10 @@ export class IsSerializedLevel implements ValidatorConstraintInterface {
         try {
             const maybeLevel: ILevel = JSON.parse(levelJson);
             const level = new LevelSchema(maybeLevel);
-            const validation = await validate(level);
-            return Promise.resolve(!!validation.length);
+            const validationErrors = await validate(level);
+            // TODO up to here we have perfect error messages for everything. Consider sending the errors instead
+            const result = validationErrors.length === 0 ? true : false;
+            return Promise.resolve(result);
         } catch (error) {
             return Promise.resolve(false);
         }

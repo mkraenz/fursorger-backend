@@ -1,22 +1,26 @@
-import { ArrayNotEmpty, IsArray, IsInt } from 'class-validator';
+import { ArrayNotEmpty, IsArray, IsInt, ValidateNested } from 'class-validator';
+import { CitySchema } from './city.schema';
+import { TravelPathSchema } from './travel-path.schema copy';
 
 export class LevelSchema {
 
     @IsArray()
     @ArrayNotEmpty()
-    public cities!: ICity[];
-
+    @ValidateNested({each: true})
+    public cities!: CitySchema[];
+    
     @IsArray()
     @ArrayNotEmpty()
-    public travelPaths!: IPath[];
+    @ValidateNested({each: true})
+    public travelPaths!: TravelPathSchema[];
 
     @IsInt()
     public playerStock!: number;
     
     constructor(level?: ILevel) {
-        this.cities = level?.cities as any
+        this.cities = level?.cities.map(city => new CitySchema(city)) as any
+        this.travelPaths = level?.travelPaths.map(path => new TravelPathSchema(path)) as any
         this.playerStock = level?.playerStock as any;
-        this.travelPaths = level?.playerStock as any
     }
 }
 
@@ -34,7 +38,7 @@ export interface ICity {
     y: number;
 }
 
-interface IPath {
+export interface IPath {
     first: string;
     second: string;
 }
