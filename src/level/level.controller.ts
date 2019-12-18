@@ -6,7 +6,7 @@ import {
     HttpStatus,
     Post,
 } from '@nestjs/common';
-import { CreateLevelDto } from './create-level.dto';
+import { CreateLevelDto } from './dtos/create-level.dto';
 import { LevelService } from './level.service';
 
 @Controller('level')

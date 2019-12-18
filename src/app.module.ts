@@ -3,7 +3,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Connection } from 'typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { Level } from './level/level.entity';
+import { City } from './level/entities/city.entity';
+import { LevelWithMetadata } from './level/entities/level-with-metadata.entity';
+import { Level } from './level/entities/level.entity';
 import { LevelModule } from './level/level.module';
 import { Photo } from './photo/photo.entity';
 import { PhotoModule } from './photo/photo.module';
@@ -17,7 +19,7 @@ import { PhotoModule } from './photo/photo.module';
             username: 'root',
             password: 'password',
             database: 'mydb',
-            entities: [Photo, Level],
+            entities: [Photo, LevelWithMetadata, Level, City],
             synchronize: true,
         }),
         PhotoModule,

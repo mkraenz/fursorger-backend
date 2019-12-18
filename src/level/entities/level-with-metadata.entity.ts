@@ -1,24 +1,31 @@
+import { Type } from 'class-transformer';
 import {
     Column,
     CreateDateColumn,
     Entity,
+    JoinColumn,
+    OneToOne,
     PrimaryGeneratedColumn,
     UpdateDateColumn,
     VersionColumn,
 } from 'typeorm';
+import { Level } from './level.entity';
 
 @Entity()
-export class Level {
-    @PrimaryGeneratedColumn()
-    public id!: number;
-
-    // TODO validation
+export class LevelWithMetadata {
     @Column({ unique: true })
     public name!: string;
 
-    // TODO validation + do compression + decompression
-    @Column({ length: 10000 })
-    public levelJson!: string;
+    @OneToOne(() => Level, level => level.metadata, {
+        cascade: true,
+        eager: true,
+    })
+    @JoinColumn()
+    @Type(() => Level)
+    public level!: Level;
+
+    @PrimaryGeneratedColumn()
+    public id!: number;
 
     @Column('int', { default: 0 })
     public likes!: number;
@@ -35,7 +42,6 @@ export class Level {
     @VersionColumn()
     public version!: number;
 
-    // TODO validation
     @Column({ nullable: true })
     public uploadedUser?: string;
 }

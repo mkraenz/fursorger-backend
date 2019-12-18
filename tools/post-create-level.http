@@ -1,13 +1,45 @@
+POST http://localhost:3140/level/ HTTP/1.1
+content-type: application/json
+
 {
-  "body": {
-    "content": "ewogICAgImxldmVsSnNvbiI6ICJ7XCJjaXRpZXNcIjpbe1wibmFtZVwiOlwiQXRoZW5zXCIsXCJzdG9ja1wiOjYsXCJwcm9kdWN0aW9uXCI6LTEsXCJ4XCI6MTUwLFwieVwiOjEwMH0se1wibmFtZVwiOlwiQmVyblwiLFwic3RvY2tcIjo2LFwicHJvZHVjdGlvblwiOi0xLFwieFwiOjUwMCxcInlcIjoyMDB9LHtcIm5hbWVcIjpcIkNhaXJvXCIsXCJzdG9ja1wiOjcsXCJwcm9kdWN0aW9uXCI6LTEsXCJ4XCI6MTUwLFwieVwiOjMwMH0se1wibmFtZVwiOlwiRHVibGluXCIsXCJzdG9ja1wiOjgsXCJwcm9kdWN0aW9uXCI6LTEsXCJ4XCI6NTAwLFwieVwiOjQwMH1dLFwidHJhdmVsUGF0aHNcIjpbe1wiZmlyc3RcIjpcIkF0aGVuc1wiLFwic2Vjb25kXCI6XCJCZXJuXCJ9LHtcImZpcnN0XCI6XCJEdWJsaW5cIixcInNlY29uZFwiOlwiQ2Fpcm9cIn0se1wiZmlyc3RcIjpcIkJlcm5cIixcInNlY29uZFwiOlwiQ2Fpcm9cIn0se1wiZmlyc3RcIjpcIkR1YmxpblwiLFwic2Vjb25kXCI6XCJBdGhlbnNcIn1dLFwicGxheWVyU3RvY2tcIjozfSIsCiAgICAibmFtZSI6ICJzdXBlciBjb29sIGxldmVsIiAKfQ==",
-    "file": false,
-    "fileSize": false
-  },
-  "headers": {
-    "content-type": "application/json"
-  },
-  "method": "POST",
-  "title": "New HTTP Request",
-  "url": "http://localhost:3000/level/"
+    "name": "super cool level",
+    "level":  {
+        "cities": [
+            {
+                "name": "Athens",
+                "stock": 1,
+                "production": -1,
+                "x": 150,
+                "y": 100
+            },
+            {
+                "name": "Bern",
+                "stock": 6,
+                "production": -1,
+                "x": 500,
+                "y": 200
+            },
+            {
+                "name": "Cairo",
+                "stock": 7,
+                "production": -1,
+                "x": 150,
+                "y": 300
+            },
+            {
+                "name": "Dublin",
+                "stock": 8,
+                "production": -1,
+                "x": 500,
+                "y": 400
+            }
+        ],
+        "travelPaths": [
+            { "first": "Athens", "second": "Bern" },
+            { "first": "Dublin", "second": "Cairo" },
+            { "first": "Bern", "second": "Cairo" },
+            { "first": "Dublin", "second": "Athens" }
+        ],
+        "playerStock": 3
+    }
 }
