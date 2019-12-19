@@ -9,6 +9,7 @@ import {
 } from 'typeorm';
 import { City } from './city.entity';
 import { LevelWithMetadata } from './level-with-metadata.entity';
+import { TravelPath } from './travel-path.entity';
 
 @Entity()
 export class Level {
@@ -22,6 +23,13 @@ export class Level {
     @JoinColumn()
     @Type(() => City)
     public cities!: City[];
+
+    @OneToMany(() => TravelPath, path => path.level, {
+        cascade: true,
+        eager: true,
+    })
+    @Type(() => TravelPath)
+    public travelPaths!: TravelPath[];
 
     @Column('int')
     public playerStock!: number;

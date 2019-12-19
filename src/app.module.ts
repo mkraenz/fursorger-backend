@@ -3,12 +3,12 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Connection } from 'typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { City } from './level/entities/city.entity';
-import { LevelWithMetadata } from './level/entities/level-with-metadata.entity';
-import { Level } from './level/entities/level.entity';
 import { LevelModule } from './level/level.module';
-import { Photo } from './photo/photo.entity';
 import { PhotoModule } from './photo/photo.module';
+import { UsersModule } from './users/users.module';
+
+const username = process.env.POSTGRES_USER || 'root';
+const password = process.env.POSTGRES_PASSWORD || 'password';
 
 @Module({
     imports: [
@@ -16,14 +16,15 @@ import { PhotoModule } from './photo/photo.module';
             type: 'postgres',
             host: 'localhost',
             port: 54320,
-            username: 'root',
-            password: 'password',
+            username,
+            password,
             database: 'mydb',
-            entities: [Photo, LevelWithMetadata, Level, City],
+            entities: ['**/*.entity.js'],
             synchronize: true,
         }),
         PhotoModule,
         LevelModule,
+        UsersModule,
     ],
     controllers: [AppController],
     providers: [AppService],

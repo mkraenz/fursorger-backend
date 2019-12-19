@@ -1,4 +1,4 @@
-POST http://localhost:3140/level/ HTTP/1.1
+POST http://localhost:3140/level HTTP/1.1
 content-type: application/json
 
 {
