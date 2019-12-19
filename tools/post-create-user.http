@@ -1,0 +1,7 @@
+POST http://localhost:3140/users/ HTTP/1.1
+content-type: application/json
+
+{
+    "email": "myemail2@example.com",
+    "username": "Peter2"
+}
