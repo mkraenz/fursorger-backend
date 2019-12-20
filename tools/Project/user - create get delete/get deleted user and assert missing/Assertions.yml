@@ -1,0 +1,10 @@
+children: []
+variables: {}
+type: Assertion
+assertions:
+  - disabled: false
+    type: compare
+    actualValue: '${$response.body.message}'
+    operator: equal
+    expectedValue: User not found
+name: Assertions

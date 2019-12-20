@@ -1,0 +1,36 @@
+children:
+  - Assertions
+variables: {}
+type: RequestStep
+assignVariables:
+  - assign:
+      type: reference
+      refNodePath: Project/user - create get delete
+    path: 'body[id]'
+    variable: userId
+requestData:
+  request:
+    method: POST
+    url: 'localhost:3140/users/'
+  headers: []
+  disabledInheritedHeaders: []
+  params:
+    - isChecked: true
+      name: ''
+      value: ''
+  body:
+    type: Json
+    jsonBody: |-
+      {
+        "email": "2@mail.com",
+        "username": "2username"
+      }
+    xmlBody: ''
+    textBody: ''
+    formData: []
+    file: ''
+    formURLEncoded: []
+  strictSSL: Inherit
+authData:
+  type: inherit
+name: create

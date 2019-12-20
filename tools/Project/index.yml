@@ -1,0 +1,20 @@
+projectUId: 1a1ba430-223d-11ea-a82e-5dba953be686
+type: Project
+name: Project
+environments:
+  environments: {}
+children:
+  - GET users
+  - user - create get delete
+  - level
+variables: {}
+authData:
+  type: inherit
+settings:
+  proxy:
+    enable: false
+requestData:
+  headers: []
+  disabledInheritedHeaders: []
+  strictSSL: 'No'
+cookies: []

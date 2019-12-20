@@ -1,0 +1,10 @@
+children: []
+variables: {}
+type: Assertion
+assertions:
+  - disabled: false
+    type: compare
+    actualValue: '${$response.code}'
+    operator: equal
+    expectedValue: '201'
+name: Assertions

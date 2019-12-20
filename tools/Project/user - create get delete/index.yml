@@ -1,0 +1,14 @@
+children:
+  - create
+  - get created user
+  - delete created user
+  - get deleted user and assert missing
+variables: {}
+type: Folder
+authData:
+  type: inherit
+requestData:
+  headers: []
+  disabledInheritedHeaders: []
+  strictSSL: Inherit
+name: user - create get delete
