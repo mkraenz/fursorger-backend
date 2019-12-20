@@ -1,7 +1,7 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
 import { Crud, CrudController } from '@nestjsx/crud';
 import { catchUniquenessViolationOf } from '../common/decorators/catch-uniqueness-violation.decorator';
-import { ProxiedBy } from '../common/decorators/proxy.decorator';
+import { ProxiedBy } from '../common/decorators/proxied-by.decorator';
 import { CreateLevelDto } from './dtos/create-level.dto';
 import { LevelWithMetadata } from './entities/level-with-metadata.entity';
 import { LevelService } from './level.service';
