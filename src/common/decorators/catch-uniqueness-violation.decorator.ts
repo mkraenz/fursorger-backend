@@ -16,7 +16,7 @@ export function catchUniquenessViolationOf(field: string) {
                 error.name === uniquenessViolationError &&
                 duplicateErrorRegex.test(error.message)
             ) {
-                throw new ConflictException(`${field} already in use`);
+                throw new ConflictException((error as any).detail);
             }
         }
     };
