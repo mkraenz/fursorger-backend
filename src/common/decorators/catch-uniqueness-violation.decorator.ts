@@ -1,23 +1,31 @@
 import { ConflictException } from '@nestjs/common';
+import { QueryFailedError } from 'typeorm';
 
 // postgres specific variables
 const duplicateErrorRegex = /^duplicate key value violates unique constraint/;
-const uniquenessViolationError = 'QueryFailedError';
 
-export function catchUniquenessViolationOf(field: string) {
-    return async (
-        decoratedMethod: () => Promise<unknown>,
-    ): Promise<unknown> => {
-        try {
-            return await decoratedMethod();
-        } catch (e) {
-            const error: Error = e;
-            if (
-                error.name === uniquenessViolationError &&
-                duplicateErrorRegex.test(error.message)
-            ) {
-                throw new ConflictException((error as any).detail);
+export const catchUniquessViolation: MethodDecorator = (
+    target,
+    key,
+    descriptor: TypedPropertyDescriptor<any>,
+) => {
+    const originalMethod = descriptor.value;
+    descriptor.value = new Proxy(originalMethod, {
+        apply: async (targetX, thisArg, args) => {
+            try {
+                const result = await targetX.apply(thisArg, args);
+                return result;
+            } catch (e) {
+                const error: Error = e;
+                if (
+                    error.name === QueryFailedError.name &&
+                    duplicateErrorRegex.test(error.message)
+                ) {
+                    throw new ConflictException((error as any).detail);
+                }
+                throw e;
             }
-        }
-    };
-}
+        },
+    });
+    return descriptor;
+};

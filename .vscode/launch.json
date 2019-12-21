@@ -7,18 +7,9 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Launch Program",
-            "skipFiles": ["<node_internals>/**"],
-            "program": "${workspaceFolder}/src/main.ts",
-            "preLaunchTask": "tsc: build - tsconfig.json",
-            "outFiles": ["${workspaceFolder}/dist/**/*.js"]
-        },
-        {
-            "type": "node",
-            "request": "launch",
             "name": "Server",
             "program": "${workspaceFolder}/src/main.ts",
-            "preLaunchTask": "tsc --watch -p tsconfig.build.json",
+            "preLaunchTask": "tsc: build - tsconfig.json",
             "outFiles": ["${workspaceFolder}/dist/**/*.js"],
             "skipFiles": [
                 "${workspaceFolder}/node_modules/**/*.js",

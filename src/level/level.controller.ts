@@ -1,9 +1,8 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
 import { Crud, CrudController } from '@nestjsx/crud';
-import { catchUniquenessViolationOf } from '../common/decorators/catch-uniqueness-violation.decorator';
+import { catchUniquessViolation } from '../common/decorators/catch-uniqueness-violation.decorator';
 import { logInput } from '../common/decorators/log-input.decorator';
 import { logOutput } from '../common/decorators/log-output.decorator';
-import { ProxiedBy } from '../common/decorators/proxied-by.decorator';
 import { CreateLevelDto } from './dtos/create-level.dto';
 import { LevelWithMetadata } from './entities/level-with-metadata.entity';
 import { LevelService } from './level.service';
@@ -39,7 +38,7 @@ export class LevelController implements CrudController<LevelWithMetadata> {
     }
 
     @Post()
-    @ProxiedBy(catchUniquenessViolationOf('name'))
+    @catchUniquessViolation
     @logInput
     @logOutput
     public async create(@Body() level: CreateLevelDto) {
