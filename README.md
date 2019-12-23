@@ -1,4 +1,4 @@
-# CoachHub preparation
+# Fursorger backend - fursorger-be
 
 ## all-in-one setup
 
@@ -30,4 +30,4 @@ npm run test:cov
 
 ## Docker
 
-- [PostgreSQL](https://hub.docker.com/_/postgres)
+-   [PostgreSQL](https://hub.docker.com/_/postgres)

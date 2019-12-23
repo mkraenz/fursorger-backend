@@ -1,0 +1,21 @@
+service: fursorger-backend
+org: prosingularity
+app: fursorger-backend
+
+plugins:
+    - serverless-plugin-typescript
+    - serverless-offline # must come after typescript
+
+provider:
+    name: aws
+    runtime: nodejs10.x
+    region: eu-central-1
+
+functions:
+    fursorgerBackend: # The name of the lambda function
+        # The module 'handler' is exported in the file 'src/lambda'
+        handler: src/lambda.handler
+        events:
+            - http:
+                  method: any
+                  path: /{any+}
