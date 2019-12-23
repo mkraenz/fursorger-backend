@@ -7,7 +7,8 @@ async function bootstrap() {
     const app = await NestFactory.create(AppModule);
     app.useGlobalPipes(configuredValidationPipe);
     app.use(configuredLoggerMiddleware);
-    await app.listen(3140);
+    app.setGlobalPrefix('prod');
+    await app.listen(3000);
 }
 // tslint:disable-next-line: no-floating-promises
 bootstrap();

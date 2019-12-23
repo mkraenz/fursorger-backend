@@ -3,21 +3,21 @@ variables: {}
 type: RequestStep
 assignVariables: []
 requestData:
-  request:
-    method: GET
-    url: 'localhost:3140/users/${$dynamicVar.userId}'
-  headers: []
-  disabledInheritedHeaders: []
-  params: []
-  body:
-    type: Json
-    jsonBody: ''
-    xmlBody: ''
-    textBody: ''
-    formData: []
-    file: ''
-    formURLEncoded: []
-  strictSSL: Inherit
+    request:
+        method: GET
+        url: 'localhost:3000/prod/users/${$dynamicVar.userId}'
+    headers: []
+    disabledInheritedHeaders: []
+    params: []
+    body:
+        type: Json
+        jsonBody: ''
+        xmlBody: ''
+        textBody: ''
+        formData: []
+        file: ''
+        formURLEncoded: []
+    strictSSL: Inherit
 authData:
-  type: inherit
+    type: inherit
 name: get created user

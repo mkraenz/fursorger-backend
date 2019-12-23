@@ -28,6 +28,7 @@ async function bootstrapServer(): Promise<Server> {
         nestApp.use(eventContext());
         nestApp.useGlobalPipes(configuredValidationPipe);
         nestApp.use(configuredLoggerMiddleware);
+        nestApp.setGlobalPrefix('prod');
         await nestApp.init();
         cachedServer = createServer(expressApp, undefined, binaryMimeTypes);
     }
