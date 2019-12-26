@@ -11,7 +11,7 @@ provider:
     name: aws
     runtime: nodejs12.x
     region: eu-central-1
-    stage: prod
+    stage: prod # for sls offline, access via localhost:3000/prod/level, for sls deploy access via aws-domain/prod/prod/level
     environment:
         POSTGRES_USER: ${env:POSTGRES_USER}
         POSTGRES_PASSWORD: ${env:POSTGRES_PASSWORD}
@@ -26,5 +26,5 @@ functions:
         handler: src/lambda.handler
         events:
             - http:
-                  method: any
                   path: /{any+}
+                  method: any

@@ -5,10 +5,10 @@
     "author": "Mirco Kraenz",
     "license": "UNLICENSED",
     "scripts": {
-        "clean": "rimraf dist",
+        "clean": "rimraf dist build .serverless",
         "build": "npm run clean && tsc -p tsconfig.build.json",
-        "deploy:prod": "NODE_ENV=prod serverless deploy",
-        "deploy:test": "NODE_ENV=prod serverless offline",
+        "deploy:prod": "npm run clean && NODE_ENV=prod serverless deploy",
+        "deploy:test": "npm run clean && NODE_ENV=prod serverless offline",
         "dev": "npm run start:dev",
         "format": "prettier --write \"src/**/*.ts\"",
         "start": "ts-node -r tsconfig-paths/register src/main.ts",
