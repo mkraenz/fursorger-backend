@@ -3,24 +3,31 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Connection } from 'typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { numberOrFalse } from './common/utils/numberOrFalse';
 import { LevelModule } from './level/level.module';
 import { PhotoModule } from './photo/photo.module';
 import { UsersModule } from './users/users.module';
 
-const username = process.env.POSTGRES_USER || 'root';
-const password = process.env.POSTGRES_PASSWORD || 'password';
+const env = process.env;
+const runtime = env.RUNTIME || 'dev';
+const username = env.POSTGRES_USER || 'root';
+const password = env.POSTGRES_PASSWORD || 'password';
+const host = env.POSTGRES_HOST || 'localhost';
+const port = numberOrFalse(env.POSTGRES_PORT) || 54320;
+const database = env.POSTGRES_DATABASE_NAME || 'mydb';
+const synchronize = runtime === 'dev';
 
 @Module({
     imports: [
         TypeOrmModule.forRoot({
             type: 'postgres',
-            host: 'localhost',
-            port: 54320,
+            host,
+            port,
             username,
             password,
-            database: 'mydb',
+            database,
             entities: ['**/*.entity.js'],
-            synchronize: true,
+            synchronize,
         }),
         PhotoModule,
         LevelModule,
