@@ -6,8 +6,7 @@ import { eventContext } from 'aws-serverless-express/middleware';
 import express = require('express');
 import { Server } from 'http';
 import { AppModule } from './app.module';
-import { configuredLoggerMiddleware } from './common/middlewares/logger.middleware';
-import { configuredValidationPipe } from './common/pipes/validation.pipe';
+import { configureNestApp } from './configure-nest-app';
 
 // NOTE: If you get ERR_CONTENT_DECODING_FAILED in your browser, this
 // is likely due to a compressed response (e.g. gzip) which has not
@@ -26,9 +25,7 @@ async function bootstrapServer(): Promise<Server> {
             new ExpressAdapter(expressApp),
         );
         nestApp.use(eventContext());
-        nestApp.useGlobalPipes(configuredValidationPipe);
-        nestApp.use(configuredLoggerMiddleware);
-        nestApp.setGlobalPrefix('prod');
+        configureNestApp(nestApp);
         await nestApp.init();
         cachedServer = createServer(expressApp, undefined, binaryMimeTypes);
     }
