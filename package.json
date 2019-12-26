@@ -62,6 +62,7 @@
         "prettier-tslint": "^0.4.2",
         "serverless-dotenv-plugin": "^2.1.1",
         "serverless-offline": "^6.0.0-alpha.41",
+        "serverless-plugin-optimize": "^4.1.1-rc.1",
         "serverless-plugin-typescript": "^1.1.9",
         "supertest": "4.0.2",
         "ts-jest": "24.0.2",

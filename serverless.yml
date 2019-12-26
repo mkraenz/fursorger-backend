@@ -5,6 +5,7 @@ app: fursorger-backend
 plugins:
     - serverless-plugin-typescript
     - serverless-dotenv-plugin
+    - serverless-plugin-optimize
     - serverless-offline # must come after typescript
 
 provider:
