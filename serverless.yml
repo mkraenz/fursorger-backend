@@ -4,13 +4,21 @@ app: fursorger-backend
 
 plugins:
     - serverless-plugin-typescript
+    - serverless-dotenv-plugin
     - serverless-offline # must come after typescript
 
 provider:
     name: aws
-    runtime: nodejs10.x
+    runtime: nodejs12.x
     region: eu-central-1
     stage: prod
+    environment:
+        POSTGRES_USER: ${env:POSTGRES_USER}
+        POSTGRES_PASSWORD: ${env:POSTGRES_PASSWORD}
+        POSTGRES_DATABASE_NAME: ${env:POSTGRES_DATABASE_NAME}
+        POSTGRES_HOST: ${env:POSTGRES_HOST}
+        POSTGRES_PORT: ${env:POSTGRES_PORT}
+        RUNTIME: ${env:RUNTIME}
 
 functions:
     fursorgerBackend: # The name of the lambda function
