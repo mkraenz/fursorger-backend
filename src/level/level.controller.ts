@@ -32,11 +32,6 @@ import { LevelService } from './level.service';
 export class LevelController implements CrudController<LevelWithMetadata> {
     constructor(public readonly service: LevelService) {}
 
-    @Get('create-random')
-    public createRandom() {
-        return this.service.createRandomLevel();
-    }
-
     @Post()
     @catchUniquessViolation
     @logInput
