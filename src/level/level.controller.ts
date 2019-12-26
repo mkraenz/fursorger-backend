@@ -1,9 +1,17 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import {
+    Body,
+    Controller,
+    HttpException,
+    Param,
+    Patch,
+    Post,
+} from '@nestjs/common';
 import { Crud, CrudController } from '@nestjsx/crud';
 import { catchUniquessViolation } from '../common/decorators/catch-uniqueness-violation.decorator';
 import { logInput } from '../common/decorators/log-input.decorator';
 import { logOutput } from '../common/decorators/log-output.decorator';
 import { CreateLevelDto } from './dtos/create-level.dto';
+import { UpdateLevelDto } from './dtos/update-level.dto';
 import { LevelWithMetadata } from './entities/level-with-metadata.entity';
 import { LevelService } from './level.service';
 
@@ -38,5 +46,25 @@ export class LevelController implements CrudController<LevelWithMetadata> {
     @logOutput
     public async create(@Body() level: CreateLevelDto) {
         return this.service.create(level);
+    }
+
+    @Patch(':id')
+    @catchUniquessViolation
+    @logInput
+    public async update(@Param('id') id: number, @Body() body: UpdateLevelDto) {
+        let result: LevelWithMetadata;
+        if (body.like) {
+            result = await this.service.like(id);
+        }
+        if (body.download) {
+            result = await this.service.increaseDownloads(id);
+        }
+        if (!result) {
+            return new HttpException(
+                'Did not specify a supported updated. Specify some of "download" or "like".',
+                501,
+            );
+        }
+        return result;
     }
 }

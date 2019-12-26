@@ -10,13 +10,33 @@ import { LevelWithMetadata } from './entities/level-with-metadata.entity';
 export class LevelService extends TypeOrmCrudService<LevelWithMetadata> {
     constructor(
         @InjectRepository(LevelWithMetadata)
-        private levelWithMetadataRepository: Repository<LevelWithMetadata>,
+        private repository: Repository<LevelWithMetadata>,
     ) {
-        super(levelWithMetadataRepository);
+        super(repository);
+    }
+
+    public async like(id: number) {
+        return this.increaseCounter(id, 'likes');
+    }
+
+    public async increaseDownloads(id: number) {
+        return this.increaseCounter(id, 'downloads');
     }
 
     public create(levelDto: CreateLevelDto) {
         const levelWithMetadata = plainToClass(LevelWithMetadata, levelDto);
-        return this.levelWithMetadataRepository.save(levelWithMetadata);
+        return this.repository.save(levelWithMetadata);
+    }
+
+    private async increaseCounter(
+        id: number,
+        field: keyof LevelWithMetadata & ('likes' | 'downloads'),
+    ) {
+        const levelsWithMetadata = await this.repository.findByIds([id]);
+        if (!levelsWithMetadata.length) {
+            this.throwNotFoundException(`LevelWithMetadata with id ${id}`);
+        }
+        levelsWithMetadata[0][field]++;
+        return this.repository.save(levelsWithMetadata[0]);
     }
 }

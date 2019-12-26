@@ -1,0 +1,6 @@
+PATCH http://localhost:3000/prod/level/1 HTTP/1.1
+content-type: application/json
+
+{
+    "download": true
+}
