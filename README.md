@@ -1,4 +1,4 @@
-# Fursorger backend - fursorger-be
+# Fursorger backend - fursorger-backend
 
 ## all-in-one setup
 
