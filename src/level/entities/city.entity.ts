@@ -10,7 +10,7 @@ export class City {
     @ManyToOne(() => Level, level => level.cities)
     public level!: Level;
 
-    @Column({ unique: true })
+    @Column()
     @IsString()
     @IsDefined()
     public name!: string;
