@@ -6,7 +6,7 @@ export class CityDto {
     public readonly name!: string;
 
     @IsNumber()
-    @Min(1)
+    @Min(0)
     public readonly stock!: number;
 
     @IsNumber()
