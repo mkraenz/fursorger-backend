@@ -34,7 +34,7 @@ npm run test:cov
 
 `docker-compose up -d`
 
-## Deployment
+## Production
 
 `Serverless` handles the deployment to AWS.
 
@@ -46,11 +46,30 @@ For all configs, see [`.env.prod`](./.env.prod) or password manager.
 # NOTE: even :test uses the production database! So don't do write operations
 npm run deploy:test
 google-chrome localhost:3000/prod/
-google-chrome localhost:3000/level/
+google-chrome localhost:3000/prod/level/
 
 npm run deploy:prod
 google-chrome <aws-provided-api>/prod/prod/
 google-chrome <aws-provided-api>/prod/prod/level
+```
+
+### Migrations
+
+-   [Example repo Nestjs with TypeORM](https://github.com/ambroiseRabier/typeorm-nestjs-migration-example)
+
+Configuration is done in [src/ormconfig.ts](src/ormconfig.ts).
+
+```bash
+npm run typeorm:migrate:prod <description-of-migration>
+# examples
+npm run typeorm:migrate:prod initial
+npm run typeorm:migrate:prod create-user
+npm run typeorm:migrate:prod levelmetadata-rename-name-to-title
+
+# NOT NEEDED: necessary migrations are run automatically on startup due to `migrationsRun: true`.
+# Only if set to `false`, the command needs to be run manually.
+# Applies necessary migrations
+npm run typeorm:run:prod
 ```
 
 ### Debugging
