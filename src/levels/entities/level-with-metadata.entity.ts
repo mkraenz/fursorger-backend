@@ -42,6 +42,6 @@ export class LevelWithMetadata {
     @VersionColumn()
     public version!: number;
 
-    @Column({ nullable: true })
-    public uploadedUser?: string;
+    @Column()
+    public uploader: string;
 }

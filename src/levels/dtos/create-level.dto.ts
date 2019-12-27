@@ -1,5 +1,5 @@
 import { Type } from 'class-transformer';
-import { IsString, Length, ValidateNested } from 'class-validator';
+import { IsDefined, IsString, Length, ValidateNested } from 'class-validator';
 import { LevelDto } from './level.dto';
 
 export class CreateLevelDto {
@@ -10,4 +10,9 @@ export class CreateLevelDto {
     @ValidateNested()
     @Type(() => LevelDto)
     public readonly level!: LevelDto;
+
+    @IsString()
+    @Length(3, 16)
+    @IsDefined()
+    public readonly uploader!: string;
 }
