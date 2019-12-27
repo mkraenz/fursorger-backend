@@ -3,6 +3,8 @@ import * as dotenv from 'dotenv';
 import * as fs from 'fs';
 import { ConnectionOptions } from 'typeorm';
 import { numberOrFalse } from './common/utils/numberOrFalse';
+// WARNING: DO NOT REMOVE THIS LINE! Needed so that serverless-typescript-plugin includes the migrations in output dir
+const migrations = require('./migrations');
 
 const environment = process.env.NODE_ENV || 'dev';
 const data: any = dotenv.parse(fs.readFileSync(`.env.${environment}`));

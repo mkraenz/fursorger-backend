@@ -5,7 +5,7 @@
     "author": "Mirco Kraenz",
     "license": "UNLICENSED",
     "scripts": {
-        "clean": "rimraf dist build .serverless",
+        "clean": "rimraf dist .build .serverless",
         "build": "npm run clean && tsc -p tsconfig.build.json",
         "deploy:prod": "npm run clean && NODE_ENV=prod serverless deploy",
         "deploy:test": "npm run clean && NODE_ENV=prod serverless offline",
