@@ -1,24 +1,18 @@
 // You can load you .env file here synchronously using dotenv package (not installed here),
-import * as dotenv from 'dotenv';
-import * as fs from 'fs';
 import { ConnectionOptions } from 'typeorm';
 import { numberOrFalse } from './common/utils/numberOrFalse';
 // WARNING: DO NOT REMOVE THIS LINE! Needed so that serverless-typescript-plugin includes the migrations in output dir
-const migrations = require('./migrations');
+import * as migrations from './migrations'; // DO NOT REMOVE!
 
-const environment = process.env.NODE_ENV || 'dev';
-const data: any = dotenv.parse(fs.readFileSync(`.env.${environment}`));
-// You can also make a singleton service that load and expose the .env file content.
+const env = process.env;
+const runtime = env.RUNTIME || 'dev';
+const username = env.POSTGRES_USER || 'root';
+const password = env.POSTGRES_PASSWORD || 'password';
+const host = env.POSTGRES_HOST || 'localhost';
+const port = numberOrFalse(env.POSTGRES_PORT) || 5432;
+const database = env.POSTGRES_DATABASE_NAME || 'mydb';
 
-const username = data.POSTGRES_USER || 'root';
-const password = data.POSTGRES_PASSWORD || 'password';
-const host = data.POSTGRES_HOST || 'localhost';
-const port = numberOrFalse(data.POSTGRES_PORT) || 5432;
-const database = data.POSTGRES_DATABASE_NAME || 'mydb';
-
-console.log(
-    `>>>>>>>>>>>>>>>> Running on environment: ${environment} <<<<<<<<<<<<<<<<`,
-);
+console.log(`>>>>>>>>>>>>>>>> Running on runtime: ${runtime} <<<<<<<<<<<<<<<<`);
 
 // Check typeORM documentation for more information.
 const config: ConnectionOptions = {
