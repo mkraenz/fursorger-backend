@@ -1,21 +1,21 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { LevelController } from './level.controller';
 import { LevelWithMetadata } from './entities/level-with-metadata.entity';
-import { LevelService } from './level.service';
+import { LevelsController } from './levels.controller';
+import { LevelsService } from './levels.service';
 
 describe('Level Controller', () => {
-    let controller: LevelController;
+    let controller: LevelsController;
     const mockRepository: Partial<Repository<LevelWithMetadata>> = {
         save: () => Promise.resolve([]),
     };
 
     beforeEach(async () => {
         const module: TestingModule = await Test.createTestingModule({
-            controllers: [LevelController],
+            controllers: [LevelsController],
             providers: [
-                LevelService,
+                LevelsService,
                 {
                     provide: getRepositoryToken(LevelWithMetadata),
                     useValue: mockRepository,
@@ -23,7 +23,7 @@ describe('Level Controller', () => {
             ],
         }).compile();
 
-        controller = module.get<LevelController>(LevelController);
+        controller = module.get<LevelsController>(LevelsController);
     });
 
     it('should be defined', () => {

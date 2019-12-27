@@ -4,8 +4,7 @@ import { Connection } from 'typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { numberOrFalse } from './common/utils/numberOrFalse';
-import { LevelModule } from './level/level.module';
-import { PhotoModule } from './photo/photo.module';
+import { LevelsModule } from './levels/levels.module';
 import { UsersModule } from './users/users.module';
 
 const env = process.env;
@@ -26,11 +25,10 @@ const synchronize = runtime === 'dev';
             username,
             password,
             database,
-            entities: ['**/*.entity.js'],
+            entities: [...LevelsModule.entities, ...UsersModule.entities],
             synchronize,
         }),
-        PhotoModule,
-        LevelModule,
+        LevelsModule,
         UsersModule,
     ],
     controllers: [AppController],

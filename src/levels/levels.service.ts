@@ -7,7 +7,7 @@ import { CreateLevelDto } from './dtos/create-level.dto';
 import { LevelWithMetadata } from './entities/level-with-metadata.entity';
 
 @Injectable()
-export class LevelService extends TypeOrmCrudService<LevelWithMetadata> {
+export class LevelsService extends TypeOrmCrudService<LevelWithMetadata> {
     constructor(
         @InjectRepository(LevelWithMetadata)
         private repository: Repository<LevelWithMetadata>,

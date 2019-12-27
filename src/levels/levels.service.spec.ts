@@ -2,10 +2,10 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { LevelWithMetadata } from './entities/level-with-metadata.entity';
-import { LevelService } from './level.service';
+import { LevelsService } from './levels.service';
 
 describe('LevelService', () => {
-    let service: LevelService;
+    let service: LevelsService;
     let spy: jest.Mock;
     const mockRepository: Partial<Repository<LevelWithMetadata>> = {
         find: () => Promise.resolve([]),
@@ -15,14 +15,14 @@ describe('LevelService', () => {
     beforeEach(async () => {
         const module: TestingModule = await Test.createTestingModule({
             providers: [
-                LevelService,
+                LevelsService,
                 {
                     provide: getRepositoryToken(LevelWithMetadata),
                     useValue: mockRepository,
                 },
             ],
         }).compile();
-        service = module.get<LevelService>(LevelService);
+        service = module.get<LevelsService>(LevelsService);
         spy = jest.fn();
     });
 

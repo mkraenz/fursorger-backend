@@ -13,7 +13,7 @@ import { logOutput } from '../common/decorators/log-output.decorator';
 import { CreateLevelDto } from './dtos/create-level.dto';
 import { UpdateLevelDto } from './dtos/update-level.dto';
 import { LevelWithMetadata } from './entities/level-with-metadata.entity';
-import { LevelService } from './level.service';
+import { LevelsService } from './levels.service';
 
 @Crud({
     model: { type: LevelWithMetadata },
@@ -36,9 +36,9 @@ import { LevelService } from './level.service';
         },
     },
 })
-@Controller('level')
-export class LevelController implements CrudController<LevelWithMetadata> {
-    constructor(public readonly service: LevelService) {}
+@Controller('levels') // TODO rename everything to levels
+export class LevelsController implements CrudController<LevelWithMetadata> {
+    constructor(public readonly service: LevelsService) {}
 
     @Post()
     @catchUniquessViolation
