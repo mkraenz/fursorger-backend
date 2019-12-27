@@ -5,7 +5,7 @@ assignVariables: []
 requestData:
     request:
         method: GET
-        url: 'localhost:3000/prod/users/${$dynamicVar.userId}'
+        url: 'localhost:3140/prod/users/${$dynamicVar.userId}'
     headers: []
     disabledInheritedHeaders: []
     params: []

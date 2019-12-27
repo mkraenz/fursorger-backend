@@ -11,7 +11,7 @@ provider:
     name: aws
     runtime: nodejs12.x
     region: eu-central-1
-    stage: prod # for sls offline, access via localhost:3000/prod/level, for sls deploy access via aws-domain/prod/prod/level
+    stage: prod # for sls offline, access via localhost:3140/prod/level, for sls deploy access via aws-domain/prod/prod/level
     environment:
         POSTGRES_USER: ${env:POSTGRES_USER}
         POSTGRES_PASSWORD: ${env:POSTGRES_PASSWORD}

@@ -5,7 +5,7 @@ assignVariables: []
 requestData:
     request:
         method: GET
-        url: 'localhost:3000/prod/level'
+        url: 'localhost:3140/prod/level'
     headers: []
     disabledInheritedHeaders: []
     params: []
