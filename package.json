@@ -1,7 +1,11 @@
 {
     "name": "fursorger-backend",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "description": "",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/proSingularity/fursorger-backend.git"
+    },
     "author": "Mirco Kraenz",
     "license": "UNLICENSED",
     "scripts": {
