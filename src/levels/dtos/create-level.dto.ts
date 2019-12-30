@@ -4,7 +4,7 @@ import { LevelDto } from './level.dto';
 
 export class CreateLevelDto {
     @IsString()
-    @Length(5, 70)
+    @Length(3, 70)
     public readonly name!: string;
 
     @ValidateNested()
