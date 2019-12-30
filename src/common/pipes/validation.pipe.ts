@@ -6,4 +6,8 @@ export const configuredValidationPipe = new ValidationPipe({
     whitelist: true,
     forbidNonWhitelisted: true,
     skipMissingProperties: false,
+    validationError: {
+        target: false,
+        value: false,
+    },
 });
