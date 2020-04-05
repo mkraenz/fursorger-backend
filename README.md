@@ -85,3 +85,12 @@ npm run dev
 ### Debugging
 
 Serverless: For debugging logs, run the serverless command again after setting the `export SLS_DEBUG=*` environment variable.
+
+### Docker
+
+Reset postgres:
+
+```bash
+docker-compose down
+docker-compose up -d
+```

@@ -1,5 +1,6 @@
 import { Type } from 'class-transformer';
 import {
+    Column,
     Entity,
     JoinColumn,
     OneToMany,
@@ -35,6 +36,9 @@ export class Level {
     @OneToOne(() => Player, pickLevel, options)
     @Type(() => Player)
     public player!: Player;
+
+    @Column({ default: 'default-background' })
+    public background!: string;
 
     @OneToOne(() => LevelWithMetadata, pickLevel)
     public metadata!: LevelWithMetadata;
