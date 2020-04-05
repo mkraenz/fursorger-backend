@@ -53,7 +53,7 @@ describe('LevelService', () => {
         expect(spy).toHaveBeenCalledTimes(1);
         expect(spy.mock.calls[0][0].name).toBe('Basic 4 Cities');
         expect(spy.mock.calls[0][0].levelJson).toBe(
-            '{"cities":[{"name":"Athens","stock":6,"production":-1,"x":150,"y":100},{"name":"Bern","stock":6,"production":-1,"x":500,"y":200},{"name":"Cairo","stock":7,"production":-1,"x":150,"y":300},{"name":"Dublin","stock":8,"production":-1,"x":500,"y":400}],"travelPaths":[{"first":"Athens","second":"Bern"},{"first":"Dublin","second":"Cairo"},{"first":"Bern","second":"Cairo"},{"first":"Dublin","second":"Athens"}],"playerStock":3}',
+            '{"cities":[{"name":"Athens","stock":6,"production":-1,"x":150,"y":100},{"name":"Bern","stock":6,"production":-1,"x":500,"y":200},{"name":"Cairo","stock":7,"production":-1,"x":150,"y":300},{"name":"Dublin","stock":8,"production":-1,"x":500,"y":400}],"travelPaths":[{"first":"Athens","second":"Bern"},{"first":"Dublin","second":"Cairo"},{"first":"Bern","second":"Cairo"},{"first":"Dublin","second":"Athens"}],"player":{"stock": 3,"location": "Athens"}}',
         );
     });
 

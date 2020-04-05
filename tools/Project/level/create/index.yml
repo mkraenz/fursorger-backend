@@ -63,7 +63,10 @@ requestData:
                     "second": "Athens"
                   }
                 ],
-                "playerStock": 3
+                "player": {
+                    "stock": 3,
+                    "location": "Athens"
+                }
               }
             }
         xmlBody: ''

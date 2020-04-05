@@ -1,4 +1,4 @@
-import { IsDefined, IsNumber, IsString, Max, Min } from 'class-validator';
+import { IsDefined, IsInt, IsString, Max, Min } from 'class-validator';
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { Level } from './level.entity';
 
@@ -16,7 +16,7 @@ export class City {
     public name!: string;
 
     @Column('int')
-    @IsNumber()
+    @IsInt()
     @Min(1)
     public stock!: number;
 
@@ -24,12 +24,12 @@ export class City {
     public production!: number;
 
     @Column('int')
-    @IsNumber()
+    @IsInt()
     @Max(2000)
     public x!: number;
 
     @Column('int')
-    @IsNumber()
+    @IsInt()
     @Min(0)
     @Max(2000)
     public y!: number;

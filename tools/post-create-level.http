@@ -41,6 +41,9 @@ content-type: application/json
             { "first": "Bern", "second": "Cairo" },
             { "first": "Dublin", "second": "Athens" }
         ],
-        "playerStock": 3
+        "player": {
+            "stock": 3,
+            "location": "Athens"
+        }
     }
 }

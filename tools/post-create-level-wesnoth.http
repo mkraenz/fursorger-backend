@@ -64,6 +64,9 @@ content-type: application/json
                 "second": "Careyn"
             }
         ],
-        "playerStock": 3
+        "player": {
+            "stock": 3,
+            "location": "Elensefar"
+        }
     }
 }
