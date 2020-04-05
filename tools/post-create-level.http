@@ -44,6 +44,7 @@ content-type: application/json
         "player": {
             "stock": 3,
             "location": "Athens"
-        }
+        },
+        "background": "background2"
     }
 }

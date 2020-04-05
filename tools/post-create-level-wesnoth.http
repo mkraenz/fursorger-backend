@@ -67,6 +67,7 @@ content-type: application/json
         "player": {
             "stock": 3,
             "location": "Elensefar"
-        }
+        },
+        "background": "background2"
     }
 }

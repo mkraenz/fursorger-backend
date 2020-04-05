@@ -45,12 +45,12 @@ For all configs, see [`.env.prod`](./.env.prod) or password manager.
 ```bash
 # NOTE: even :test uses the production database! So don't do write operations
 npm run deploy:test
-google-chrome localhost:3140/prod/
-google-chrome localhost:3140/prod/level/
+google-chrome localhost:3000/prod/
+google-chrome localhost:3000/prod/levels
 
 npm run deploy:prod
 google-chrome <aws-provided-api>/prod/prod/
-google-chrome <aws-provided-api>/prod/prod/level
+google-chrome <aws-provided-api>/prod/prod/levels
 ```
 
 ### Migrations

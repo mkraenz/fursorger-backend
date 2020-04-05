@@ -4,6 +4,8 @@ import {
     IsArray,
     IsDefined,
     IsObject,
+    IsOptional,
+    IsString,
     ValidateNested,
 } from 'class-validator';
 import { CityDto } from './city.dto';
@@ -27,4 +29,9 @@ export class LevelDto {
     @IsDefined()
     @Type(() => PlayerDto)
     public readonly player!: PlayerDto;
+
+    @IsString()
+    @IsDefined()
+    @IsOptional()
+    public background?: string;
 }
