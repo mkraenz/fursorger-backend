@@ -33,6 +33,7 @@ import { LevelsService } from './levels.service';
             // must match the fields of level entity
             'level.cities': { eager: true },
             'level.travelPaths': { eager: true },
+            'level.player': { eager: true },
         },
     },
 })

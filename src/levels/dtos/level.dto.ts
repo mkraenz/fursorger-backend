@@ -1,6 +1,15 @@
 import { Type } from 'class-transformer';
-import { ArrayNotEmpty, IsArray, IsInt, ValidateNested } from 'class-validator';
+import {
+    ArrayNotEmpty,
+    IsArray,
+    IsDefined,
+    IsObject,
+    IsOptional,
+    IsString,
+    ValidateNested,
+} from 'class-validator';
 import { CityDto } from './city.dto';
+import { PlayerDto } from './player.dto';
 import { TravelPathDto } from './travel-path.dto';
 
 export class LevelDto {
@@ -16,6 +25,13 @@ export class LevelDto {
     @Type(() => TravelPathDto)
     public readonly travelPaths!: TravelPathDto[];
 
-    @IsInt()
-    public readonly playerStock!: number;
+    @IsObject()
+    @IsDefined()
+    @Type(() => PlayerDto)
+    public readonly player!: PlayerDto;
+
+    @IsString()
+    @IsDefined()
+    @IsOptional()
+    public background?: string;
 }

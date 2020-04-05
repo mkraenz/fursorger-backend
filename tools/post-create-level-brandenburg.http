@@ -76,6 +76,10 @@ content-type: application/json
                 "second": "Mahlow"
             }
         ],
-        "playerStock": 3
+        "player": {
+            "stock": 3,
+            "location": "Mahlow"
+        },
+        "background": "background2"
     }
 }

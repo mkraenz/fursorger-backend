@@ -45,12 +45,12 @@ For all configs, see [`.env.prod`](./.env.prod) or password manager.
 ```bash
 # NOTE: even :test uses the production database! So don't do write operations
 npm run deploy:test
-google-chrome localhost:3140/prod/
-google-chrome localhost:3140/prod/level/
+google-chrome localhost:3000/prod/
+google-chrome localhost:3000/prod/levels
 
 npm run deploy:prod
 google-chrome <aws-provided-api>/prod/prod/
-google-chrome <aws-provided-api>/prod/prod/level
+google-chrome <aws-provided-api>/prod/prod/levels
 ```
 
 ### Migrations
@@ -59,10 +59,13 @@ google-chrome <aws-provided-api>/prod/prod/level
 
 Configuration is done in [src/ormconfig.ts](src/ormconfig.ts).
 
+#### Create mutation
+
 ```bash
-npm run typeorm:migrate:prod <description-of-migration>
-# **Important**: When creating a mutation, import it to mutations/index.ts
+npm run typeorm:migrate <description-of-migration>
 ```
+
+#### Running migrations
 
 Use with caution! Usually not a necessary step. Migrations are run automatically on startup due to `migrationsRun: true`. Only if set to `false`, the command needs to be run manually. The following applies migrations to the production database.
 
@@ -73,11 +76,21 @@ npm run typeorm:run:prod
 #### Examples
 
 ```bash
-npm run typeorm:migrate:prod initial
-npm run typeorm:migrate:prod create-user
-npm run typeorm:migrate:prod levelmetadata-rename-name-to-title
+npm run typeorm:migrate initial
+npm run typeorm:migrate create-user
+npm run typeorm:migrate levelmetadata-rename-name-to-title
+npm run dev
 ```
 
 ### Debugging
 
 Serverless: For debugging logs, run the serverless command again after setting the `export SLS_DEBUG=*` environment variable.
+
+### Docker
+
+Reset postgres:
+
+```bash
+docker-compose down
+docker-compose up -d
+```

@@ -30,7 +30,6 @@
         "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js --config src/ormconfig.ts",
         "typeorm:migrate": "npm run typeorm migration:generate -- -n",
         "typeorm:run": "npm run typeorm migration:run",
-        "typeorm:migrate:prod": "NODE_ENV=prod npm run typeorm migration:generate -- -n",
         "typeorm:run:prod": "NODE_ENV=prod npm run typeorm migration:run",
         "typeorm:revert:prod": "NODE_ENV=prod npm run typeorm migration:revert"
     },
